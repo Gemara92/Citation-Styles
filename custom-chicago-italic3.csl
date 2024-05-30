@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0">
+  <info>
+    <title>Custom Chicago Manual of Style 17th Edition</title>
+    <id>http://www.zotero.org/styles/custom-chicago-note</id>
+    <link href="http://www.zotero.org/styles/chicago-note-bibliography" rel="self"/>
+    <link href="http://www.zotero.org/styles/chicago-note-bibliography" rel="template"/>
+    <author>
+      <name>Custom Author</name>
+    </author>
+    <category citation-format="note"/>
+    <category field="generic-base"/>
+    <updated>2024-05-30T12:00:00+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name form="long" and="text" initialize-with=". " delimiter=", "/>
+      <label form="short" prefix=", "/>
+    </names>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="book graphic motion_picture" match="any">
+        <text variable="title" font-style="italic"/>
+      </if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+  <citation>
+    <layout prefix="(" suffix=")" delimiter=", ">
+      <text macro="author"/>
+      <text macro="title" prefix=", "/>
+      <text variable="container-title" font-style="italic" prefix=", "/>
+      <date variable="issued" prefix=", ">
+        <date-part name="year"/>
+      </date>
+      <text variable="page" prefix=", " suffix=".">
+        <term name="page" form="short"/>
+        <text variable="page"/>
+      </text>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout suffix=".">
+      <text macro="author"/>
+      <text macro="title" prefix=". "/>
+      <text variable="container-title" font-style="italic" prefix=". "/>
+      <group delimiter=", ">
+        <text variable="volume"/>
+        <text variable="issue" prefix="(" suffix=")"/>
+        <text variable="page"/>
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </group>
+    </layout>
+  </bibliography>
+</style>
