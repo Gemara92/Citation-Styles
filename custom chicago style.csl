@@ -12,37 +12,49 @@
     <category field="generic-base"/>
     <updated>2024-05-30T00:00:00+00:00</updated>
   </info>
+
   <macro name="author">
     <names variable="author">
       <name and="text" sort-separator=", " delimiter=", "/>
-      <label form="short" prefix=", " text-case="capitalize-first"/>
     </names>
   </macro>
+
   <macro name="title">
     <text variable="title" font-style="italic"/>
   </macro>
+
   <macro name="container-title">
     <text variable="container-title" font-style="italic"/>
   </macro>
+
   <macro name="issued">
     <date variable="issued">
       <date-part name="year"/>
     </date>
   </macro>
+
   <macro name="page">
     <group delimiter=", ">
       <label variable="page" form="short" prefix="p. "/>
       <text variable="page"/>
     </group>
   </macro>
+
   <citation>
-    <layout prefix="(" suffix=")" delimiter=", ">
-      <text variable="author" font-style="italic"/>
-      <text macro="title"/>
-      <text macro="issued"/>
+    <layout delimiter=". ">
+      <text macro="author"/>
+      <text macro="title" prefix=". "/>
+      <text macro="container-title" prefix=". In: "/>
+      <text macro="issued" prefix=". "/>
+      <group delimiter=", ">
+        <text variable="volume"/>
+        <text variable="issue" prefix="no. "/>
+      </group>
       <text macro="page"/>
+      <text variable="URL" prefix=". " suffix="."/>
     </layout>
   </citation>
+
   <bibliography>
     <layout hanging-indent="true" delimiter=". ">
       <text macro="author"/>
